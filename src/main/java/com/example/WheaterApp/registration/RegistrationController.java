@@ -16,12 +16,6 @@ public class RegistrationController {
         this.registrationService = registrationService;
     }
 
-//    @GetMapping
-//    public String showRegistrationForm(Model model) {
-//        model.addAttribute("registrationRequest", new RegistrationRequest()); // This creates a blank registration form object
-//        return "register"; // This refers to the `register.html` template (e.g., `src/main/resources/templates/register.html`)
-//    }
-
     @PostMapping()
     public String register(@RequestBody RegistrationRequest request){
         return registrationService.register(request);
