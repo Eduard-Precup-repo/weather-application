@@ -1,0 +1,45 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.security.web.FilterChainProxy: DEBUG
+    org.springframework.security.authentication: DEBUG
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${email}
+    password: ${email_password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/registration
+    username: postgres
+    password: 6969
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+  mvc:
+    cors:
+      allowed-origins: "http://localhost:3000"
+      allowed-methods: GET, POST, PUT, DELETE, OPTIONS
+      allowed-headers: Content-Type, Authorization
+      allow-credentials: true
